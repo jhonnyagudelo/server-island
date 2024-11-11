@@ -3,7 +3,7 @@ import { actions } from 'astro:actions'
 import MainLayout from '../Layouts/MainLayout.astro'
 import PlaceCards from '../components/PlaceCards.astro'
 
-const {data=[],error} = await actions.getPlaces();
+const {data:places=[],error} = await actions.getPlaces();
 
 ---
 
@@ -12,7 +12,7 @@ const {data=[],error} = await actions.getPlaces();
 	<div class='grid grid-cols-3 gap-4'>
 
 		{
-			data?.map(place => <PlaceCards/>)
+			places?.map(place => <PlaceCards place={place}/>)
 		}
 		<!-- <PlaceCards/> -->
 	</div>
